@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="ParallaxImageView">
+        <attr name="parallax_ratio" format="float" />
+        <attr name="center_crop" format="boolean" />
+        <attr name="withZoomAnimation" format="boolean" />
+        <attr name="fromScale" format="float" />
+        <attr name="toScale" format="float" />
+    </declare-styleable>
+
+</resources>
