@@ -1,4 +1,7 @@
-# ParallaxRecyclerView
+# [Reborn]ParallaxRecyclerView - Alpha
+
+>> Based on [yayaa/ParallaxRecyclerView](https://github.com/yayaa/ParallaxRecyclerView)
+
 This library will provide you to have Parallax effect on every item of your RecyclerView. 
 Sample shows with static images but it can be used with async loading images as well. 
 Tested with [Picasso][1]
