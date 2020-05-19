@@ -10,6 +10,9 @@
         android:id="@+id/backgroundImage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        app:toScale="3"
+
+        app:fromScale="1"
         app:withZoomAnimation="true" />
 
     <TextView

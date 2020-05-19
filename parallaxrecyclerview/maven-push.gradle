@@ -1,0 +1,51 @@
+//region Publish to jCenter
+def libGroupId = 'tech.kood'
+def libArtifactId = 'ParallaxRecyclerView'
+def libVersion = '0.0.1'
+def libDesc = 'A library that animated RecyclerView items with Parallax.'
+def libLicenses = ['Apache-2.0']
+def libVCSUrl = 'https://github.com/DasserBasyouni/ParallaxRecyclerView-AlphaReborn.git'
+def libOrganization = 'kood'
+
+// Generate Source Jar
+task sourceJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier "sources"
+}
+
+// Create the publication with the pom configuration
+publishing {
+    publications {
+        MyPublication(MavenPublication) {
+            groupId libGroupId
+            artifactId libArtifactId
+            version libVersion
+            artifact(sourceJar)
+            artifact("$buildDir/outputs/aar/$libArtifactId-release.aar")
+        }
+    }
+}
+
+// Bintray config
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+    publications = ['MyPublication']
+    pkg {
+        repo = "ParallaxRecyclerView"
+        name = "$libGroupId:$libArtifactId"
+        desc = libDesc
+        licenses = libLicenses
+        vcsUrl = libVCSUrl
+        version {
+            name = libVersion
+            vcsTag = libVersion
+            userOrg = libOrganization
+            released = new Date()
+        }
+    }
+}
+//endregion
